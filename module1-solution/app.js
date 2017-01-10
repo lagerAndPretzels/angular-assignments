@@ -1,11 +1,18 @@
 (function(){
-  angular.module("app",[])
-  .controller("ctrlr", function($scope){
+  angular.module("LunchCheck",[])
+  .controller("LunchCheckController", LunchCheckController);
+  //Minification Proof
+  LunchCheckController.$inject = ['$scope'];
+  function LunchCheckController($scope){
     $scope.lunchList = ""; //Initialize variables
     $scope.lunchStatus = "";
-    $scope.checkLunchListUpdateStatus = function (){$scope.lunchStatus = checkIfTooMuch($scope.lunchList)};
-  });
-  function checkIfTooMuch(string)
+    $scope.lunchStatusColor = "black";
+    $scope.checkLunchListUpdateStatusAndColor = function (){
+      $scope.lunchStatus = generateLunchListStatus($scope.lunchList)
+      $scope.lunchStatusColor = generateLunchStatusColor($scope.lunchStatus);
+    };
+  }
+  function generateLunchListStatus(string)
   {
     var response = "Please enter data first";
     if(string.length > 0){        //Only operate on a string of non-zero length
@@ -19,6 +26,14 @@
       }
     }
     return response;
+  }
+  function generateLunchStatusColor(string)
+  {
+    var color = "red";
+    if(string === "Enjoy!" || string === "Too much!") {
+      color = "green";
+    }
+    return color;
   }
   function removeEmptyListItems(array)
   {
