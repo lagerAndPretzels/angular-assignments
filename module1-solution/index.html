@@ -10,22 +10,21 @@
       .message { font-size: 1.3em; font-weight: bold; }
     </style>
   </head>
-<body >
-   <div  class="container" ng-controller="ctrlr">
-     <h1>Lunch Checker</h1>
+  <body >
+     <div  class="container" ng-controller="ctrlr">
+       <h1>Lunch Checker</h1>
 
-         <div class="form-group">
-             <input id="lunch-menu" type="text" ng-model="lunchList"
-             placeholder="list comma separated dishes you usually have for lunch"
-             class="form-control">
-         </div>
-         <div class="form-group">
-             <button class="btn btn-default" ng-click="checkTooMuch()">Check If Too Much</button>
-         </div>
-         <div class="form-group message">
-           {{lunchStatus}}
-         </div>
-   </div>
-
-</body>
+           <div class="form-group">
+               <input id="lunch-menu" type="text" ng-model="lunchList"
+               placeholder="list comma separated dishes you usually have for lunch"
+               class="form-control">
+           </div>
+           <div class="form-group">
+               <button class="btn btn-default" ng-click="checkLunchListUpdateStatus()">Check If Too Much</button>
+           </div>
+           <div class="form-group message">
+             {{lunchStatus}}
+           </div>
+     </div>
+  </body>
 </html>
