@@ -1,0 +1,3 @@
+<div ng-repeat="item in ctrlr.items">
+  <span>{{item.name}} - {{item.short_name}} : {{item.description}}</span><button ng-click="ctrlr.onRemove({index:$index})">Don't want this one!</button>
+</div>
