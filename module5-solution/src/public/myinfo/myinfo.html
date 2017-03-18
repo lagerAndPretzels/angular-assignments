@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="css/public.css">
+<div class="container">
+  <div ng-if="!myInfoCtrl.myInfo">
+    <h2>Not Signed Up Yet. <span class="link" ui-sref="public.signup">Sign up Now!<span></h2>
+  </div>
+  <div ng-if="myInfoCtrl.myInfo">
+    <h2 class="text-center">
+      Here is your registered information:
+    </h2>
+    First Name: {{myInfoCtrl.myInfo.firstName}}<br>
+    Last Name: {{myInfoCtrl.myInfo.lastName}}<br>
+    Email: {{myInfoCtrl.myInfo.email}}<br>
+    Phone: {{myInfoCtrl.myInfo.phone}}<br>
+    Favorite Category: {{myInfoCtrl.myInfo.category}}<br>
+    <img ng-src="images/menu/{{myInfoCtrl.myInfo.category}}/{{myInfoCtrl.myInfo.category}}.jpg" alt="">
+  </div>
+</div>

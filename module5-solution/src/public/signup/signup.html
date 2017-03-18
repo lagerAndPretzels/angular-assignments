@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="css/public.css">
+<div class="container">
+  <h4 class="text-center">
+    Please fill the form below to sign up for the newsletter:
+  </h4>
+
+  <form id="sign-up-form" name="signUpForm" novalidate>
+    <div class="">
+      First Name: <input type="text" name="firstName" required ng-model="signUpCtrl.firstName">
+      <span ng-if="signUpForm.firstName.$invalid && signUpForm.firstName.$touched">
+        Input invalid.</span>
+    </div>
+
+    <div class="">
+      Last Name: <input type="text" name="lastName" required ng-model="signUpCtrl.lastName">
+      <span ng-if="signUpForm.lastName.$invalid && signUpForm.lastName.$touched">
+        Input invalid.</span>
+    </div>
+
+    <div class="">
+      Email: <input type="email" name="email" required ng-model="signUpCtrl.email">
+      <span ng-if="signUpForm.email.$invalid && signUpForm.email.$touched">
+        Input invalid.</span>
+    </div>
+
+    <div class="">
+      Phone Number: <input type="text" name="phone" required ng-model="signUpCtrl.phone" pattern="\d{3}-\d{3}-\d{4}">
+      <span ng-if="signUpForm.phone.$invalid && signUpForm.phone.$touched">
+        Input invalid.</span>
+    </div>
+
+    Favorite Category: <input type="text" name="category" required ng-model="signUpCtrl.category" ng-max-length="2">
+    <span ng-if="signUpForm.category.$invalid && signUpForm.category.$touched">
+      Input invalid.</span>
+    <br>
+
+    <button type="button" ng-disabled="signUpForm.$invalid"
+            ng-click="signUpCtrl.submit()">
+              Submit
+    </button>
+  </form>
+  <!--This is where a status message is placed-->
+  <div ng-if="signUpCtrl.lastSubmitSuccess" class="text-center">
+    <h4>Your information has been saved.</h4>
+  </div>
+  <div ng-if="signUpCtrl.invalidCategory" class="text-center">
+    <h4>No such menu number exists!<h4></div>
+
+</div>
